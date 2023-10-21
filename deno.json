@@ -1,0 +1,6 @@
+{
+  "lock": false,
+  "compilerOptions": {
+    "lib": ["deno.window", "dom"]
+  }
+}

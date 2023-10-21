@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./src/index.js" type="module"></script>
+  <link rel="stylesheet" href="./styles/index.css" />
+</head>
+
+<body>
+  <h1>デコレーションビューワー</h1>
+  <div id="preview" class="icon_preview">
+    <div class="icon_preview_wrapper">
+      ちょっと待ってね
+    </div>
+  </div>
+  <div class="icon_preview_form">
+    <label>
+      アイコン画像：<input id="icon_image" type="file" accept="image/*" />
+    </label>
+    <label>
+      デコレーション画像：<input id="decoration_image" type="file" accept="image/*" />
+    </label>
+    <button id="redraw_button">再描画ボタン</button>
+  </div>
+</body>
+
+</html>
