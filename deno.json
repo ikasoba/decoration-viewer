@@ -2,5 +2,16 @@
   "lock": false,
   "compilerOptions": {
     "lib": ["deno.window", "dom"]
+  },
+  "tasks": {
+    "vite": "deno run -A --node-modules-dir npm:/vite@4.5.0/",
+    "dev": "deno task vite",
+    "build": "deno task vite build",
+    "serve": "deno task vite serve"
+  },
+  "imports": {
+    "vite": "npm:/vite@4.5.0",
+    "vite/": "npm:/vite@4.5.0/",
+    "lightningcss": "npm:/lightningcss@1.22.0"
   }
 }

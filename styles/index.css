@@ -13,7 +13,7 @@ body {
 
   width: fit-content;
 
-  & label {
+  .form_space_beetween label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,17 +28,19 @@ body {
 
   padding: 0.5rem;
 
+  --icon_preview_size: 10rem;
+
   .icon_preview_wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 20rem;
+    width: calc(var(--icon_preview_size) * 2);
     aspect-ratio: 1 / 1;
 
     .icon {
       position: absolute;
-      width: 10rem;
+      width: var(--icon_preview_size);
       aspect-ratio: 1 / 1;
 
       border-radius: 100%;
@@ -46,7 +48,7 @@ body {
 
     .decoration {
       position: absolute;
-      width: 20rem;
+      width: calc(var(--icon_preview_size) * 2);
       aspect-ratio: 1 / 1;
     }
   }

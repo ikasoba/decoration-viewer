@@ -4,26 +4,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./src/index.js" type="module"></script>
   <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="./styles/theme.css" />
+  <style id="bg_color_style"></style>
+  <script src="./src/index.ts" type="module"></script>
 </head>
 
 <body>
-  <h1>デコレーションビューワー</h1>
-  <div id="preview" class="icon_preview">
-    <div class="icon_preview_wrapper">
-      ちょっと待ってね
+  <header>
+    <h1>デコレーションビューワー</h1>
+  </header>
+  <main>
+    <div id="preview" class="icon_preview">
+      <div class="icon_preview_wrapper">
+        ちょっと待ってね
+      </div>
     </div>
-  </div>
-  <div class="icon_preview_form">
-    <label>
-      アイコン画像：<input id="icon_image" type="file" accept="image/*" />
-    </label>
-    <label>
-      デコレーション画像：<input id="decoration_image" type="file" accept="image/*" />
-    </label>
-    <button id="redraw_button">再描画ボタン</button>
-  </div>
+    <div class="icon_preview_form">
+      <fieldset class="form_space_beetween">
+        <label>
+          アイコン画像：<input id="icon_image" type="file" accept="image/*" />
+        </label>
+        <label>
+          デコレーション画像：<input id="decoration_image" type="file" accept="image/*" />
+        </label>
+        <button id="redraw_button">再描画ボタン</button>
+      </fieldset>
+      <fieldset id="bg_color_field">
+        <legend>背景色</legend>
+        <label>
+          <input type="radio" value="light" name="bg_color" />
+          ライト
+        </label>
+        <label>
+          <input type="radio" value="dark" name="bg_color" />
+          ダーク
+        </label>
+      </fieldset>
+    </div>
+  </main>
+  <footer>
+    <a href="https://github.com/ikasoba/decoration-viewer/">
+      Github Repository
+    </a>
+  </footer>
 </body>
 
 </html>
