@@ -15,12 +15,15 @@ const themes = {
   },
 };
 
+let defaultTheme =
+  (localStorage.getItem("theme_name") ?? "light") as keyof typeof themes;
+
 const keyof = <O extends {}>(value: any, obj: O): value is keyof O =>
   value in obj;
 
 const style = document.getElementById("bg_color_style")!;
 
-export const setBgColor = (name: keyof typeof themes) => {
+const setBgColor = (name: keyof typeof themes) => {
   const theme = themes[name];
 
   style.innerHTML = `:root { ${
@@ -28,8 +31,16 @@ export const setBgColor = (name: keyof typeof themes) => {
   } }`;
 };
 
-export function bgColor() {
+function bgColor() {
   const fieldset = document.getElementById("bg_color_field")!;
+
+  const defaultInput = document.querySelector(
+    `input[value="${defaultTheme}"][name="bg_color"]`,
+  ) as
+    | HTMLInputElement
+    | null;
+
+  if (defaultInput) defaultInput.checked = true;
 
   fieldset.addEventListener("change", (e) => {
     if (!(e.target instanceof HTMLInputElement)) return;
@@ -37,5 +48,14 @@ export function bgColor() {
     if (!keyof(value, themes)) return;
 
     setBgColor(value);
+    localStorage.setItem("theme_name", value);
   });
 }
+
+setBgColor(
+  defaultTheme,
+);
+
+window.addEventListener("load", () => {
+  bgColor();
+});

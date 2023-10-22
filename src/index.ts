@@ -1,6 +1,5 @@
 import twemoji from "https://esm.run/twemoji@14.0.2";
 import emojis from "./assets/emojis.json" assert { type: "json" };
-import { bgColor, setBgColor } from "./bgcolor.ts";
 
 const dummyImage =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
@@ -93,6 +92,3 @@ function main() {
 window.addEventListener("load", () => {
   main();
 });
-
-bgColor();
-setBgColor("light");
