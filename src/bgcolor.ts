@@ -1,4 +1,4 @@
-const themes = {
+export const themes = {
   "light": {
     "--bg-color": "#f9f9f9",
     "--fg-color": "#676767",
@@ -15,15 +15,12 @@ const themes = {
   },
 };
 
-let defaultTheme =
-  (localStorage.getItem("theme_name") ?? "light") as keyof typeof themes;
-
 const keyof = <O extends {}>(value: any, obj: O): value is keyof O =>
   value in obj;
 
 const style = document.getElementById("bg_color_style")!;
 
-const setBgColor = (name: keyof typeof themes) => {
+export const setBgColor = (name: keyof typeof themes) => {
   const theme = themes[name];
 
   style.innerHTML = `:root { ${
@@ -31,31 +28,32 @@ const setBgColor = (name: keyof typeof themes) => {
   } }`;
 };
 
-function bgColor() {
-  const fieldset = document.getElementById("bg_color_field")!;
+export function setupBgColor() {
+  const defaultTheme =
+    (localStorage.getItem("theme_name") ?? "light") as keyof typeof themes;
 
-  const defaultInput = document.querySelector(
-    `input[value="${defaultTheme}"][name="bg_color"]`,
-  ) as
-    | HTMLInputElement
-    | null;
+  setBgColor(
+    defaultTheme,
+  );
 
-  if (defaultInput) defaultInput.checked = true;
+  window.addEventListener("load", () => {
+    const defaultInput = document.querySelector(
+      `input[value="${defaultTheme}"][name="bg_color"]`,
+    ) as
+      | HTMLInputElement
+      | null;
 
-  fieldset.addEventListener("change", (e) => {
-    if (!(e.target instanceof HTMLInputElement)) return;
-    const value = e.target.value;
-    if (!keyof(value, themes)) return;
+    if (defaultInput) defaultInput.checked = true;
 
-    setBgColor(value);
-    localStorage.setItem("theme_name", value);
+    const fieldset = document.getElementById("bg_color_field")!;
+
+    fieldset.addEventListener("change", (e) => {
+      if (!(e.target instanceof HTMLInputElement)) return;
+      const value = e.target.value;
+      if (!keyof(value, themes)) return;
+
+      setBgColor(value);
+      localStorage.setItem("theme_name", value);
+    });
   });
 }
-
-setBgColor(
-  defaultTheme,
-);
-
-window.addEventListener("load", () => {
-  bgColor();
-});

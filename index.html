@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/index.css" />
-  <link rel="stylesheet" href="./styles/theme.css" />
   <style id="bg_color_style"></style>
-  <script src="./src/bgcolor.ts"></script>
+  <style id="icon_size_style"></style>
   <script src="./src/index.ts" type="module"></script>
 </head>
 
@@ -40,6 +39,25 @@
         <label>
           <input type="radio" value="dark" name="bg_color" />
           ダーク
+        </label>
+      </fieldset>
+      <fieldset id="icon_size_field">
+        <legend>アイコンサイズ</legend>
+        <label>
+          <input type="radio" value="58px" name="icon_size" />
+          投稿
+        </label>
+        <label>
+          <input type="radio" value="120px" name="icon_size" />
+          プロフ
+        </label>
+        <label>
+          <input type="radio" value="10rem" name="icon_size" />
+          普通
+        </label>
+        <label>
+          <input type="radio" value="20rem" name="icon_size" />
+          2倍
         </label>
       </fieldset>
     </div>

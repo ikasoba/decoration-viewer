@@ -1,3 +1,9 @@
+@import "./theme.css";
+
+:root {
+  --icon_preview_size: 10rem;
+}
+
 body {
   margin: 0;
   padding: 0.5rem;
@@ -26,22 +32,21 @@ body {
   justify-content: center;
   align-items: center;
 
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
   padding: 0.5rem;
-
-  --icon_preview_size: 10rem;
 
   .icon_preview_wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: calc(var(--icon_preview_size) * 2);
-    aspect-ratio: 1 / 1;
-
     .icon {
       position: absolute;
       width: var(--icon_preview_size);
       aspect-ratio: 1 / 1;
+      pointer-events: none;
 
       border-radius: 100%;
     }
@@ -50,6 +55,7 @@ body {
       position: absolute;
       width: calc(var(--icon_preview_size) * 2);
       aspect-ratio: 1 / 1;
+      pointer-events: none;
     }
   }
 }
